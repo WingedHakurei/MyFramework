@@ -8,7 +8,7 @@ namespace MyFramework.Editor.HybridCLR
     // ReSharper disable once InconsistentNaming
     public static class HybridCLREditor
     {
-        [MenuItem("MyFramework/Move HotUpdate DLL to Editor StreamingAssets")]
+        [MenuItem("MyFramework/HybridCLR/Move HotUpdate DLL to Editor StreamingAssets")]
         public static void MoveHotUpdateDllToEditorStreamingAssets()
         {
             var originalFilePath = Path.Combine(Application.dataPath,
@@ -31,7 +31,7 @@ namespace MyFramework.Editor.HybridCLR
             AssetDatabase.Refresh();
         }
         
-        [MenuItem("MyFramework/Move HotUpdate DLL to Build StreamingAssets")]
+        [MenuItem("MyFramework/HybridCLR/Move HotUpdate DLL to Build StreamingAssets")]
         public static void MoveHotUpdateDllToBuildStreamingAssets()
         {
             var originalFilePath = Path.Combine(Application.dataPath,

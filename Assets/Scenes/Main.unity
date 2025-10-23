@@ -415,7 +415,7 @@ GameObject:
   - component: {fileID: 1018966531}
   - component: {fileID: 1018966530}
   m_Layer: 0
-  m_Name: LoadDll
+  m_Name: GameMain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

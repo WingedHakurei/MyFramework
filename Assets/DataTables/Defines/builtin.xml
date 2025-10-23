@@ -1,0 +1,17 @@
+<module name="">
+    <bean name="LVector2" valueType="1" sep=",">
+        <var name="x" type="float"/>
+        <var name="y" type="float"/>
+    </bean>
+    <bean name="LVector3" valueType="1" sep=",">
+        <var name="x" type="float"/>
+        <var name="y" type="float"/>
+        <var name="z" type="float"/>
+    </bean>
+    <bean name="LVector4" valueType="1" sep=",">
+        <var name="x" type="float"/>
+        <var name="y" type="float"/>
+        <var name="z" type="float"/>
+        <var name="w" type="float"/>
+    </bean>
+</module>
