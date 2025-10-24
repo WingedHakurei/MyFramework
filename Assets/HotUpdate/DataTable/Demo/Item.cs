@@ -11,7 +11,7 @@ using Luban;
 using SimpleJSON;
 
 
-namespace MyFramework.DataTable.Demo
+namespace HotUpdate.DataTable.Demo
 {
 public sealed partial class Item : Luban.BeanBase
 {

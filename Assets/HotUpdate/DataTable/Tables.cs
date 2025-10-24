@@ -10,7 +10,7 @@
 using Luban;
 using SimpleJSON;
 
-namespace MyFramework.DataTable
+namespace HotUpdate.DataTable
 {
 public partial class Tables
 {

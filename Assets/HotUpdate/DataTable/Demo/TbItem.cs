@@ -11,7 +11,7 @@ using Luban;
 using SimpleJSON;
 
 
-namespace MyFramework.DataTable.Demo
+namespace HotUpdate.DataTable.Demo
 {
 public partial class TbItem
 {
@@ -27,7 +27,7 @@ public partial class TbItem
         foreach(JSONNode _ele in _buf.Children)
         {
             Demo.Item _v;
-            { if(!_ele.IsObject) { throw new SerializationException(); }  _v = MyFramework.DataTable.Demo.Item.DeserializeItem(_ele);  }
+            { if(!_ele.IsObject) { throw new SerializationException(); }  _v = HotUpdate.DataTable.Demo.Item.DeserializeItem(_ele);  }
             _dataList.Add(_v);
             _dataMap.Add(_v.Id, _v);
         }

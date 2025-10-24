@@ -1,16 +1,15 @@
 {
-    "name": "HotUpdate",
+    "name": "MyFramework",
     "rootNamespace": "",
     "references": [
-        "GUID:890a49fe71e846d595c9cde7b024ff61",
-        "GUID:2a81c6962524d424a8ef5072bd3b0fa0"
+        "GUID:890a49fe71e846d595c9cde7b024ff61"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,
     "precompiledReferences": [],
-    "autoReferenced": false,
+    "autoReferenced": true,
     "defineConstraints": [],
     "versionDefines": [],
     "noEngineReferences": false

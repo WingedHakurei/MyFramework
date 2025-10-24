@@ -7,7 +7,7 @@ dotnet %LUBAN_DLL% ^
     -c cs-dotnet-json ^
     -d json ^
     --conf %CONF_ROOT%\luban.conf ^
-    -x outputCodeDir=%WORKSPACE%\Assets\Scripts\MyFramework\DataTable ^
+    -x outputCodeDir=%WORKSPACE%\Assets\HotUpdate\DataTable ^
     -x outputDataDir=output
 
 pause
