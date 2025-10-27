@@ -11,7 +11,7 @@ using Luban;
 using SimpleJSON;
 
 
-namespace HotUpdate.DataTable.Demo
+namespace HotUpdate.DataTable.Config
 {
 public sealed partial class Item : Luban.BeanBase
 {
@@ -20,12 +20,13 @@ public sealed partial class Item : Luban.BeanBase
         { if(!_buf["id"].IsNumber) { throw new SerializationException(); }  Id = _buf["id"]; }
         { if(!_buf["name"].IsString) { throw new SerializationException(); }  Name = _buf["name"]; }
         { if(!_buf["desc"].IsString) { throw new SerializationException(); }  Desc = _buf["desc"]; }
-        { if(!_buf["count"].IsNumber) { throw new SerializationException(); }  Count = _buf["count"]; }
+        { if(!_buf["is_for_sale"].IsBoolean) { throw new SerializationException(); }  IsForSale = _buf["is_for_sale"]; }
+        { if(!_buf["cost"].IsNumber) { throw new SerializationException(); }  Cost = _buf["cost"]; }
     }
 
     public static Item DeserializeItem(JSONNode _buf)
     {
-        return new Demo.Item(_buf);
+        return new Config.Item(_buf);
     }
 
     /// <summary>
@@ -41,11 +42,15 @@ public sealed partial class Item : Luban.BeanBase
     /// </summary>
     public readonly string Desc;
     /// <summary>
-    /// 个数
+    /// 是否可售
     /// </summary>
-    public readonly int Count;
+    public readonly bool IsForSale;
+    /// <summary>
+    /// 价格
+    /// </summary>
+    public readonly int Cost;
    
-    public const int __ID__ = -1541373890;
+    public const int __ID__ = 1638860351;
     public override int GetTypeId() => __ID__;
 
     public  void ResolveRef(Tables tables)
@@ -58,7 +63,8 @@ public sealed partial class Item : Luban.BeanBase
         + "id:" + Id + ","
         + "name:" + Name + ","
         + "desc:" + Desc + ","
-        + "count:" + Count + ","
+        + "isForSale:" + IsForSale + ","
+        + "cost:" + Cost + ","
         + "}";
     }
 }

@@ -14,17 +14,23 @@ namespace HotUpdate.DataTable
 {
 public partial class Tables
 {
-    public Demo.TbItem TbItem {get; }
+    public Config.TbItem TbItem {get; }
+    public Store.TbStoreItem TbStoreItem {get; }
+    public Player.TbInventory TbInventory {get; }
 
     public Tables(System.Func<string, JSONNode> loader)
     {
-        TbItem = new Demo.TbItem(loader("demo_tbitem"));
+        TbItem = new Config.TbItem(loader("config_tbitem"));
+        TbStoreItem = new Store.TbStoreItem(loader("store_tbstoreitem"));
+        TbInventory = new Player.TbInventory(loader("player_tbinventory"));
         ResolveRef();
     }
     
     private void ResolveRef()
     {
         TbItem.ResolveRef(this);
+        TbStoreItem.ResolveRef(this);
+        TbInventory.ResolveRef(this);
     }
 }
 
