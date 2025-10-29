@@ -15,7 +15,7 @@ namespace HotUpdate.Model.Player
             var tbInventory = dataTables.TbInventory.DataList;
             foreach (var inventory in tbInventory)
             {
-                ItemIdToCount[inventory.ItemId] = tbInventory.Count;
+                ItemIdToCount[inventory.ItemId] = inventory.Count;
             }
         }
     }
