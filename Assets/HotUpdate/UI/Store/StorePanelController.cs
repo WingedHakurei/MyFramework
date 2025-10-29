@@ -1,9 +1,11 @@
-﻿using HotUpdate.Model.Player;
+﻿using Cysharp.Threading.Tasks;
+using HotUpdate.Model.Player;
 using HotUpdate.Model.Store;
 using MyUtils;
 using QFramework;
 using TMPro;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
 
 namespace HotUpdate.UI.Store
@@ -11,7 +13,7 @@ namespace HotUpdate.UI.Store
     public class StorePanelController : MonoBehaviour, IController
     {
         #region View
-        [SerializeField] private StoreItemController _itemPrefab;
+        [SerializeField] private AssetReference _itemPrefab;
         [SerializeField] private Transform _itemParent;
         [SerializeField] private Button _inventoryButton;
         [SerializeField] private TMP_Text _coinsText;
@@ -23,11 +25,17 @@ namespace HotUpdate.UI.Store
 
         private void Start()
         {
+            StartAsync().Forget();
+        }
+
+        private async UniTask StartAsync()
+        {
             _inventoryModel = this.GetModel<InventoryModel>();
             var storeModel = this.GetModel<StoreModel>();
             foreach (var itemId in storeModel.ItemToCount.Keys)
             {
-                var storeItemController = Instantiate(_itemPrefab, _itemParent);
+                var itemGo = await _itemPrefab.InstantiateAsync(_itemParent);
+                var storeItemController = itemGo.GetComponent<StoreItemController>();
                 storeItemController.Inject(itemId);
             }
             _inventoryButton.onClick.AddListener(() => this.SendCommand(new OpenInventoryCommand()));

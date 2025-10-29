@@ -1,19 +1,23 @@
-﻿using System.IO;
-using HotUpdate.DataTable;
+﻿using HotUpdate.DataTable;
 using QFramework;
 using SimpleJSON;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace HotUpdate.Utility
 {
     public class DataTableUtility : IUtility
     {
+        private const string FileRoot = "Assets/HotUpdateAssets/DataTables/output";
         public Tables Root { get; private set; }
         
         public DataTableUtility()
         {
-            var dataTableDir = Path.Combine(Application.streamingAssetsPath, "DataTables/output");
-            Root = new Tables(file => JSON.Parse(File.ReadAllText($"{dataTableDir}/{file}.json")));   
+            Root = new Tables( file =>
+            {
+                var text = Addressables.LoadAssetAsync<TextAsset>($"{FileRoot}/{file}.json").WaitForCompletion();
+                return JSON.Parse(text.text);
+            });   
         }
     }
 }

@@ -59,6 +59,14 @@ namespace Editor.Luban
             CopyDataTables(PathDefines.BuildStreamingAssets);
             MyLogger.Info("Data tables copied to Build StreamingAssets.");
         }
+        
+        [MenuItem("MyFramework/Luban/Copy Data Tables to HotUpdateAssets")]
+        public static void CopyDataTablesToHotUpdateAssets()
+        {
+            CopyDataTables(PathDefines.HotUpdateAssets);
+            AssetDatabase.Refresh();
+            MyLogger.Info("Data tables copied to HotUpdateAssets.");
+        }
 
         private static void CopyDataTables(string destination)
         {

@@ -9,16 +9,59 @@
   <assembly fullname="MyUtils">
     <type fullname="MyUtils.MyLogger" preserve="all" />
   </assembly>
+  <assembly fullname="QFramework">
+    <type fullname="QFramework.AbstractCommand" preserve="all" />
+    <type fullname="QFramework.AbstractModel" preserve="all" />
+    <type fullname="QFramework.Architecture`1" preserve="all" />
+    <type fullname="QFramework.CanGetModelExtension" preserve="all" />
+    <type fullname="QFramework.CanGetUtilityExtension" preserve="all" />
+    <type fullname="QFramework.CanRegisterEventExtension" preserve="all" />
+    <type fullname="QFramework.CanSendCommandExtension" preserve="all" />
+    <type fullname="QFramework.CanSendEventExtension" preserve="all" />
+    <type fullname="QFramework.IArchitecture" preserve="all" />
+    <type fullname="QFramework.IBelongToArchitecture" preserve="all" />
+    <type fullname="QFramework.ICanGetModel" preserve="all" />
+    <type fullname="QFramework.ICanGetSystem" preserve="all" />
+    <type fullname="QFramework.ICanGetUtility" preserve="all" />
+    <type fullname="QFramework.ICanRegisterEvent" preserve="all" />
+    <type fullname="QFramework.ICanSendCommand" preserve="all" />
+    <type fullname="QFramework.ICanSendEvent" preserve="all" />
+    <type fullname="QFramework.ICanSendQuery" preserve="all" />
+    <type fullname="QFramework.IController" preserve="all" />
+    <type fullname="QFramework.IUnRegister" preserve="all" />
+    <type fullname="QFramework.IUtility" preserve="all" />
+    <type fullname="QFramework.UnRegisterExtension" preserve="all" />
+  </assembly>
+  <assembly fullname="Unity.Addressables">
+    <type fullname="UnityEngine.AddressableAssets.AssetReference" preserve="all" />
+  </assembly>
+  <assembly fullname="Unity.TextMeshPro">
+    <type fullname="TMPro.TMP_Text" preserve="all" />
+  </assembly>
   <assembly fullname="UnityEngine.CoreModule">
     <type fullname="UnityEngine.Application" preserve="all" />
+    <type fullname="UnityEngine.Component" preserve="all" />
+    <type fullname="UnityEngine.Events.UnityAction" preserve="all" />
+    <type fullname="UnityEngine.Events.UnityEvent" preserve="all" />
+    <type fullname="UnityEngine.Events.UnityEventBase" preserve="all" />
+    <type fullname="UnityEngine.GameObject" preserve="all" />
     <type fullname="UnityEngine.MonoBehaviour" preserve="all" />
-    <type fullname="UnityEngine.Object" preserve="all" />
+    <type fullname="UnityEngine.SerializeField" preserve="all" />
+    <type fullname="UnityEngine.Transform" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.UI">
+    <type fullname="UnityEngine.UI.Button" preserve="all" />
+    <type fullname="UnityEngine.UI.Button/ButtonClickedEvent" preserve="all" />
   </assembly>
   <assembly fullname="mscorlib">
+    <type fullname="System.Action`1" preserve="all" />
     <type fullname="System.Boolean" preserve="all" />
     <type fullname="System.Collections.Generic.Dictionary`2" preserve="all" />
+    <type fullname="System.Collections.Generic.Dictionary`2/KeyCollection" preserve="all" />
+    <type fullname="System.Collections.Generic.Dictionary`2/KeyCollection/Enumerator" preserve="all" />
     <type fullname="System.Collections.Generic.IEnumerable`1" preserve="all" />
     <type fullname="System.Collections.Generic.IEnumerator`1" preserve="all" />
+    <type fullname="System.Collections.Generic.KeyValuePair`2" preserve="all" />
     <type fullname="System.Collections.Generic.List`1" preserve="all" />
     <type fullname="System.Collections.Generic.List`1/Enumerator" preserve="all" />
     <type fullname="System.Collections.IEnumerator" preserve="all" />
