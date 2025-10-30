@@ -21,7 +21,7 @@ namespace Editor.HybridCLR
         {
             CopyHotUpdateDll(PathDefines.HotUpdateAssets);
             AssetDatabase.Refresh();
-            MyLogger.Info("HotUpdate DLL copied to Editor StreamingAssets.");
+            MyLogger.Info("HotUpdate DLL copied to HotUpdateAssets.");
         }
         
         [MenuItem("MyFramework/HybridCLR/Copy HotUpdate DLL to Build StreamingAssets")]

@@ -25,8 +25,9 @@ namespace HotUpdate.UI.Store
         private int _itemId;
         #endregion
 
-        private void Start()
+        public void Init(int itemId)
         {
+            _itemId = itemId;
             _storeModel = this.GetModel<StoreModel>();
             
             _buyButton.onClick.AddListener(() => this.SendCommand(new ItemBuyCommand(_itemId)));
@@ -34,11 +35,7 @@ namespace HotUpdate.UI.Store
 
             this.RegisterEvent<ItemBoughtEvent>(_ => UpdateView()).UnRegisterWhenGameObjectDestroyed(gameObject);
             this.RegisterEvent<ItemSoldEvent>(_ => UpdateView()).UnRegisterWhenGameObjectDestroyed(gameObject);
-        }
-
-        public void Inject(int itemId)
-        {
-            _itemId = itemId;
+            
             UpdateView();
         }
 

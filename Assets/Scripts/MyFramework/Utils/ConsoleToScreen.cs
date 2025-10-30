@@ -34,6 +34,26 @@ namespace MyFramework.Utils
                         : line.Substring(i * MaxLineLength, line.Length - i * MaxLineLength));
                 }
             }
+
+            if (type == LogType.Exception)
+            {
+                foreach (var line in stackTrace.Split('\n'))
+                {
+                    if (line.Length <= MaxLineLength)
+                    {
+                        _lines.Add(line);
+                        continue;
+                    }
+                    var lineCount = line.Length / MaxLineLength + 1;
+                    for (var i = 0; i < lineCount; i++)
+                    {
+                        _lines.Add((i + 1) * MaxLineLength <= line.Length
+                            ? line.Substring(i * MaxLineLength, MaxLineLength)
+                            : line.Substring(i * MaxLineLength, line.Length - i * MaxLineLength));
+                    }
+                }
+            }
+            
             if (_lines.Count > MaxLines)
             {
                 _lines.RemoveRange(0, _lines.Count - MaxLines);

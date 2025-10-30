@@ -1,4 +1,4 @@
-﻿using System.Threading.Tasks;
+﻿using Cysharp.Threading.Tasks;
 using HotUpdate.Model.Player;
 using HotUpdate.Model.Store;
 using MyUtils;
@@ -25,25 +25,25 @@ namespace HotUpdate.UI.Store
 
         private void Start()
         {
-            StartAsync();
+            StartAsync().Forget();
         }
 
-        private async Task StartAsync()
+        private async UniTask StartAsync()
         {
             _inventoryModel = this.GetModel<InventoryModel>();
+            _inventoryButton.onClick.AddListener(() => this.SendCommand(new OpenInventoryCommand()));
+            UpdateView();
+            
             var storeModel = this.GetModel<StoreModel>();
             foreach (var itemId in storeModel.ItemToCount.Keys)
             {
-                var itemGo = await _itemPrefab.InstantiateAsync(_itemParent).Task;
+                var itemGo = await _itemPrefab.InstantiateAsync(_itemParent);
                 var storeItemController = itemGo.GetComponent<StoreItemController>();
-                storeItemController.Inject(itemId);
+                storeItemController.Init(itemId);
             }
-            _inventoryButton.onClick.AddListener(() => this.SendCommand(new OpenInventoryCommand()));
             
             this.RegisterEvent<StoreItemController.ItemBoughtEvent>(_ => UpdateView()).UnRegisterWhenGameObjectDestroyed(gameObject);
             this.RegisterEvent<StoreItemController.ItemSoldEvent>(_ => UpdateView()).UnRegisterWhenGameObjectDestroyed(gameObject);
-            
-            UpdateView();
         }
 
         private void UpdateView()
