@@ -34,13 +34,12 @@ namespace HotUpdate.UI.Store
 
             this.RegisterEvent<ItemBoughtEvent>(_ => UpdateView()).UnRegisterWhenGameObjectDestroyed(gameObject);
             this.RegisterEvent<ItemSoldEvent>(_ => UpdateView()).UnRegisterWhenGameObjectDestroyed(gameObject);
-            
-            UpdateView();
         }
 
         public void Inject(int itemId)
         {
             _itemId = itemId;
+            UpdateView();
         }
 
         private void UpdateView()

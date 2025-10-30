@@ -1,4 +1,4 @@
-﻿using Cysharp.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using HotUpdate.Model.Player;
 using HotUpdate.Model.Store;
 using MyUtils;
@@ -25,16 +25,16 @@ namespace HotUpdate.UI.Store
 
         private void Start()
         {
-            StartAsync().Forget();
+            StartAsync();
         }
 
-        private async UniTask StartAsync()
+        private async Task StartAsync()
         {
             _inventoryModel = this.GetModel<InventoryModel>();
             var storeModel = this.GetModel<StoreModel>();
             foreach (var itemId in storeModel.ItemToCount.Keys)
             {
-                var itemGo = await _itemPrefab.InstantiateAsync(_itemParent);
+                var itemGo = await _itemPrefab.InstantiateAsync(_itemParent).Task;
                 var storeItemController = itemGo.GetComponent<StoreItemController>();
                 storeItemController.Inject(itemId);
             }
